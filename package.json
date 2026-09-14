@@ -1,0 +1,38 @@
+{
+  "name": "background-job",
+  "version": "1.0.0",
+  "description": "An  API whose slow work happens in a background job — the endpoint answers instantly, a status endpoint reports progress, and one cron job runs on the clock alone.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alimagdye/background-job.git"
+  },
+  "keywords": [
+    "background",
+    "job",
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Ali Magdy",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/alimagdye/background-job/issues"
+  },
+  "homepage": "https://github.com/alimagdye/background-job#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.5.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}
