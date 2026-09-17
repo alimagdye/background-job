@@ -19,6 +19,12 @@ app.get("/health", (_req, res) => {
 app.post("/reports", async (req, res) => {
   const { topic } = req.body;
 
+  if (!topic) {
+    return res.status(400).json({
+      error: "topic is required",
+    });
+  }
+
   const id = randomUUID();
 
   reports.set(id, {
