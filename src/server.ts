@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import { serve } from "inngest/express";
-import { sayHello, makeReport } from "./inngest/functions.js";
+import { sayHello, makeReport, heartbeat } from "./inngest/functions.js";
 import { inngest } from "./inngest/client.js";
 import { randomUUID } from "node:crypto";
 import { reports } from "./reports/store.js";
@@ -63,7 +63,7 @@ app.use(
   "/api/inngest",
   serve({
     client: inngest,
-    functions: [sayHello, makeReport],
+    functions: [sayHello, makeReport, heartbeat],
   }),
 );
 

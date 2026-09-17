@@ -1,4 +1,4 @@
-export type ReportStatus = "pending" | "done";
+export type ReportStatus = "pending" | "done" | "failed";
 
 export type Report = {
   id: string;

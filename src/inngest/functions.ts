@@ -49,3 +49,33 @@ export const makeReport = inngest.createFunction(
     return result;
   },
 );
+
+export const heartbeat = inngest.createFunction(
+  {
+    id: "heartbeat",
+    triggers: [{ cron: "* * * * *" }], // every minute
+  },
+  async () => {
+    let pending = 0;
+    let done = 0;
+    let failed = 0;
+
+    for (const report of reports.values()) {
+      if (report.status === "pending") {
+        pending++;
+      } else if (report.status === "done") {
+        done++;
+      } else if (report.status === "failed") {
+        failed++;
+      }
+    }
+
+    console.log(`[heartbeat] pending=${pending} done=${done} failed=${failed}`);
+
+    return {
+      pending,
+      done,
+      failed,
+    };
+  },
+);
